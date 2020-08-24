@@ -21,7 +21,7 @@ By providing different Outcomes, and encouraging the discussion about them, this
 
 ### Author
 
-This application was created by Maël Donoso using Ruby on Rails, as a project for the École Polytechnique Fédérale de Lausanne.
+This application was created by Maël Donoso using Ruby on Rails, initially as a project for the École Polytechnique Fédérale de Lausanne.
 
 
 ## Implemented technologies
@@ -64,7 +64,6 @@ This application was created by Maël Donoso using Ruby on Rails, as a project f
 
 ### Third party APIs
 * Unsplash
-* Amazon Web Services: Amazon Simple Storage Service (S3)
 
 ### Deployment platform
 Heroku (https://www.heroku.com/)
