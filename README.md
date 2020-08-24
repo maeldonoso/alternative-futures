@@ -2,7 +2,7 @@
 
 ## Public URL
 
-https://powerful-bayou-33044.herokuapp.com/
+https://salty-spire-74103.herokuapp.com/
 
 
 ## About this application
