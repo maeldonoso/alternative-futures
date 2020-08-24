@@ -1,0 +1,27 @@
+<main>
+  <div class="content-wrapper">
+    <div class="btn--top__field">
+      <%= link_to(translate('back_to_edit_future'), edit_future_path(@future), class: 'btn btn--inline') %>
+    </div>
+    <h1>Photos</h1>
+    <%= form_tag(future_photos_path(@future), method: :get) do %>
+      <label for="query" class='input__label'><%= translate('change_search_term') %></label>
+      <%= text_field_tag(:query, @query, class: 'input__field') %>
+      <button class="btn btn--inline" type="submit"><%= translate('post') %></button>
+    <% end %>
+    <ul class="cards photos">
+      <% @photos.each do |photo| %>
+      <li class="card photo">
+        <%= image_tag(photo.urls.regular) %>
+        <%= form_tag(future_photos_path(@future)) do %>
+          <div class="prompt">
+            <%= hidden_field_tag(:photo_url, photo.urls.regular) %>
+            <%= submit_tag(translate('use_photo'), class: 'btn') %>
+          </div>
+        <% end %>
+        <p class='photo__description'>Photo taken by <%= photo.user.name %>, available at <%= link_to('unsplash.com', photo.links.html) %></p>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</main>

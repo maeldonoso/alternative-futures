@@ -1,0 +1,28 @@
+<main>
+  <div class="content-wrapper">
+    <nav class="sub-nav">
+      <h4><%= translate('account') %>: <%= current_user.name %> (<%= current_user.email %>)</h4>
+      <div class="account__row">
+        <div class="account__icon">
+          <img class="account__avatar" src="<%= current_user.avatar %>">
+        </div>
+        <div class="account__text">
+          <ul>
+            <li><%= link_to(translate('edit_account'), account_path) %></li>
+            <li><%= translate('my_futures') %></li>
+            <li><%= link_to(translate('create_future'), new_future_path) %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1><%= translate('my_futures') %></h1>
+    <p><%= translate('to_edit_a_future') %></p>
+    <ul class="cards">
+    <% @futures.each do |future| %>
+      <li class="card">
+        <%= render(partial: 'editable_future_card', locals: { future: future }) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</main>

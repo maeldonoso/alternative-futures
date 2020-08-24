@@ -1,0 +1,44 @@
+<main>
+  <div class="content-wrapper">
+    <nav class="sub-nav">
+      <h4><%= translate('account') %>: <%= current_user.name %> (<%= current_user.email %>)</h4>
+      <div class="account__row">
+        <div class="account__icon">
+          <img class="account__avatar" src="<%= current_user.avatar %>">
+        </div>
+        <div class="account__text">
+          <ul>
+            <li><%= translate('edit_account') %></li>
+            <li><%= link_to(translate('my_futures'), account_futures_path) %></li>
+            <li><%= link_to(translate('create_future'), new_future_path) %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1><%= translate('edit_account') %></h1>
+    <%= form_for(current_user, url: account_path) do |form| %>
+      <div class="input__row">
+        <%= form.label(:email, class: 'input__label') %>
+        <%= form.text_field(:email, placeholder: 'e.g. me@epfl.ch', class: 'input__field') %>
+      </div>
+      <div class="input__row">
+        <%= form.label(:name, class: 'input__label') %>
+        <%= form.text_field(:name, placeholder: 'e.g. Elijah Baley', class: 'input__field') %>
+      </div>
+      <div class="input__row">
+        <div class="prompt">
+          <%= form.submit(translate('update_account'), class: "btn") %>
+        </div>
+      </div>
+    <% end %>
+    <div class="show-section">
+      <h2><%= translate('delete_account') %></h2>
+      <div class="show__row">
+        <p><%= translate('delete_information') %></p>
+      </div>
+      <div class="show__row">
+        <%= link_to(translate('delete_user'), user_path(current_user), class: 'btn btn--inline btn--warning', method: :delete, data: {confirm: translate('are_you_sure')}, remote: true) %>
+      </div>
+    </div>
+  </div>
+</main>

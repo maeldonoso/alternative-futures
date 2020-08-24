@@ -1,0 +1,6 @@
+<%= form_tag(futures_path, method: 'GET') do %>
+  <div class="btn-field">
+    <%= text_field_tag('q', nil, placeholder: 'e.g. What if we colonized Mars?', class: 'search__field') %>
+    <%= button_tag(translate('search'), type: 'submit', class: 'btn') %>
+  </div>
+<% end %>

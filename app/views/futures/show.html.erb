@@ -1,0 +1,137 @@
+<main>
+  <div class="content-wrapper">
+    <div class="show__intro">
+      <div class="show__image">
+        <%= render(partial: 'future_photo', locals: { future: @future }) %>
+      </div>
+      <div class="show__presentation">
+        <p class="blue-text"><%= translate('future_number') %><span id='future-id'><%= @future.id %></span> - <%= translate('created_by') %> <%= @future.user.name %></p>
+        <h5 id='future-title'><%= @future.title %></h5>
+        <p><%= translate('expected_by') %> <span id='future-date'><%= predicted_year(@future) %></span></p>
+        <p id='future-link' class='no-display'><%= future_path(@future) %></p>
+        <p class="blue-text"><%= translate('future_score') %>: <%= @future_score %>%</p>
+        <button id='add-to-chronology' class='btn btn--inline'><%= translate('add_to_chronology') %></button>
+        <button id='remove-from-chronology' class='btn btn--inline no-display'><%= translate('remove_from_chronology') %></button>
+        <% if logged_in? %>
+          <% if can_edit?(@future) %>
+            <%= link_to(translate('edit_future'), edit_future_path(@future), class: 'btn btn--inline') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show__row">
+      <div class="show__icon">
+        <%= inline_svg_tag('sphere.svg', class: 'sphere--blue') %>
+      </div>
+      <div class="show__text">
+        <p class="description__subtitle"><%= translate('description_future') %></p>
+        <p id='future-description'><%= @future.description %></p>
+        <p class='upvote-future'><%= translate('upvotes_future') %> <span id='total_upvotes_future-<%= @future.id.to_s %>'><%= @future.users.length %></span></p>
+        <% if @display_user_features %>
+          <% if current_user.upvoted_futures.exists?(@future.id) %>
+            <%= form_tag(user_upvoted_future_path(current_user), method: :delete, remote: true) do %>
+              <%= hidden_field_tag(:future_id, @future.id) %>
+              <%= submit_tag(translate('remove_upvote'), class: 'btn btn--inline', id: 'upvote-future-' + @future.id.to_s) %>
+            <% end %>
+          <% else %>
+            <%= form_tag(user_upvoted_futures_path(current_user), remote: true) do %>
+              <%= hidden_field_tag(:future_id, @future.id) %>
+              <%= submit_tag(translate('upvote_future'), class: 'btn btn--inline', id: 'upvote-future-' + @future.id.to_s) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('possible_outcomes') %></h2>
+      <% @future.outcomes.order(impact: :desc).each do |outcome| %>
+        <div class="show__row">
+          <div class="show__icon">
+            <%= render(partial: 'outcome_sphere', locals: {outcome: outcome}) %>
+          </div>
+          <div class="show__text <%= outcome.impact %>">
+            <p><%= outcome.description %></p>
+            <p class='upvote-outcome'><%= translate('upvotes_outcome') %> <span id='total_upvotes_outcome-<%= outcome.id.to_s %>'><%= outcome.users.length %></span></p>
+            <% if @display_user_features %>
+              <% if current_user.upvoted_outcomes.exists?(outcome.id) %>
+                <%= form_tag(user_upvoted_outcome_path(current_user), method: :delete, remote: true) do %>
+                  <%= hidden_field_tag(:outcome_id, outcome.id) %>
+                  <%= submit_tag(translate('remove_upvote'), class: 'btn btn--inline ' + outcome.impact, id: 'upvote-outcome-' + outcome.id.to_s) %>
+                <% end %>
+              <% else %>
+                <%= form_tag(user_upvoted_outcomes_path(current_user), remote: true) do %>
+                  <%= hidden_field_tag(:outcome_id, outcome.id) %>
+                  <%= submit_tag(translate('upvote_outcome'), class: 'btn btn--inline ' + outcome.impact, id: 'upvote-outcome-' + outcome.id.to_s) %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @future.outcomes.empty? %>
+        <p><%= translate('no_outcome') %></p>
+      <% end %>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('discussion') %></h2>
+      <% if @display_user_features %>
+        <div class="show__row">
+          <div class="show__icon">
+            <img class="avatar__image" src="<%= current_user.avatar %>">
+          </div>
+          <div class="show__text">
+            <p><%= translate('logged_in_as') %> <%= current_user.name %> (<%= current_user.email %>)</p>
+          </div>
+        </div>
+        <%= form_for([@future, @comment], remote: true) do |form| %>
+          <div class="input__row">
+            <%= form.label(:body, translate('add_comment'), class: 'input__label') %>
+            <%= form.text_area(:body, class: 'input__field') %>
+          </div>
+          <div class="input__row">
+            <div class="prompt">
+              <%= form.submit(translate('post'), class: "btn") %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div id="commentList">
+        <% @future.comments.order(created_at: :desc).page(params[:page]).each do |comment| %>
+          <div class="show__row">
+            <div class="show__icon">
+              <img class="avatar__image" src="<%= comment.user.avatar %>">
+            </div>
+            <div class="show__text">
+              <p class="description__subtitle"><%= translate('comment_by') %> <%= comment.user.name %> - <%= comment.created_at.strftime("%-d %B %Y at %H:%M") %> UTC</p>
+              <p><%= comment.body %></p>
+              <p class='upvote-comment'><%= translate('upvotes_comment') %> <span id='total_upvotes_comment-<%= comment.id.to_s %>'><%= comment.users.length %></span></p>
+              <% if @display_user_features %>
+                <% if current_user.upvoted_comments.exists?(comment.id) %>
+                  <%= form_tag(user_upvoted_comment_path(current_user), method: :delete, remote: true) do %>
+                    <%= hidden_field_tag(:comment_id, comment.id) %>
+                    <%= submit_tag(translate('remove_upvote'), class: 'btn btn--inline', id: 'upvote-comment-' + comment.id.to_s) %>
+                  <% end %>
+                <% else %>
+                  <%= form_tag(user_upvoted_comments_path(current_user), remote: true) do %>
+                    <%= hidden_field_tag(:comment_id, comment.id) %>
+                    <%= submit_tag(translate('upvote_comment'), class: 'btn btn--inline', id: 'upvote-comment-' + comment.id.to_s) %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <div>
+          <%= paginate @future.comments.order(created_at: :desc).page(params[:page]) %>
+        </div>
+      </div>
+      <% if @future.comments.empty? %>
+        <p id="no-comment"><%= translate('no_comment') %></p>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<script>
+  chronologyEvents();
+</script>

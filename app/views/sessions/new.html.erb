@@ -1,0 +1,27 @@
+<main>
+  <div class="content-wrapper">
+    <h1><%= translate('login') %></h1>
+    <% if(flash.any?) %>
+      <% flash.each do |name, message| %>
+        <div class="form__error">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= form_tag(sessions_path) do %>
+      <div class="input__row">
+        <%= label(:email, translate('email'), class: 'input__label') %>
+        <%= text_field_tag(:email, nil, placeholder: 'e.g. me@epfl.ch', class: 'input__field') %>
+      </div>
+      <div class="input__row">
+        <%= label(:password, translate('password'), class: 'input__label') %>
+        <%= password_field_tag(:password, nil, class: 'input__field') %>
+      </div>
+      <div class="input__row">
+        <div class="prompt">
+          <%= submit_tag(translate('login'), type: 'submit', class: "btn") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

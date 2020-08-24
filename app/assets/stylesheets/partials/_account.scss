@@ -1,0 +1,29 @@
+.account__row {
+  font-size: 1.2em;
+  margin: 2.4em 0 2.4em 0;
+}
+
+.account__avatar {
+  height: 150px;
+  width: 150px;
+}
+
+@include tablet {
+  .account__row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .account__text {
+    margin-left: 3.6em;
+  }
+}
+
+@include desktop {
+  .account__row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .account__text {
+    margin-left: 5.6em;
+  }
+}

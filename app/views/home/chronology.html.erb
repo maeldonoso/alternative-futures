@@ -1,0 +1,28 @@
+<main>
+  <div class="content-wrapper">
+    <h1><%= translate('chronology') %></h1>
+    <button id='my-chronology' class='btn btn--inline'><%= translate('my_chronology') %></button>
+    <button id='my-futures-chronology' class='btn btn--inline'><%= translate('my_futures') %></button>
+    <button id='popular-chronology' class='btn btn--inline'><%= translate('popular_futures') %></button>
+    <button id='recent-chronology' class='btn btn--inline'><%= translate('recent_futures') %></button>
+    <div id='chronology'>
+    </div>
+    <div id='empty-chronology' class='empty-chronology no-display'>
+      <p><%= translate('empty_chronology') %></p>
+    </div>
+    <div id='my-futures' class='no-display'>
+      <%= render(partial: 'standard_chronologies', locals: {futures: @my_futures}) %>
+    </div>
+    <div id='popular-futures' class='no-display'>
+      <%= render(partial: 'standard_chronologies', locals: {futures: @popular_futures}) %>
+    </div>
+    <div id='recent-futures' class='no-display'>
+      <%= render(partial: 'standard_chronologies', locals: {futures: @recent_futures}) %>
+    </div>
+    <button id='delete-chronology' class='btn btn--inline'><%= translate('delete_chronology') %></button>
+  </div>
+</main>
+
+<script>
+  displayChronology();
+</script>

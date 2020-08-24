@@ -1,0 +1,10 @@
+var upvoteRow = document.getElementById('upvote-comment-<%= @comment.id %>').parentElement.parentElement;
+document.getElementById('upvote-comment-<%= @comment.id %>').remove();
+
+var upvoteMessage = document.createElement('p');
+upvoteMessage.setAttribute('class', 'upvote-comment');
+upvoteMessage.appendChild(document.createTextNode('<%= translate('vote_removed') %>'));
+upvoteRow.appendChild(upvoteMessage);
+
+var upvoteCounter = document.getElementById('total_upvotes_comment-<%= @comment.id.to_s %>');
+upvoteCounter.textContent = (parseInt(upvoteCounter.textContent) - 1).toString();

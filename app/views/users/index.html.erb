@@ -1,0 +1,21 @@
+<main>
+  <div class="content-wrapper">
+    <h1><%= translate('user_index') %></h1>
+    <% @users.each do |user| %>
+      <div class="show__row" id="user-<%= user.id %>">
+        <div class="show__icon">
+          <img class="avatar__image" src="<%= user.avatar %>">
+        </div>
+        <div class="show__text">
+          <p><%= user.name %> (<%= user.email %>)</p>
+          <p><%= translate('registered_since') %> <%= user.created_at %></p>
+          <%= link_to(translate('edit_user'), edit_user_path(user), class: 'btn btn--inline') %>
+          <%= link_to(translate('delete_user'), user_path(user), class: 'btn btn--inline btn--warning', method: :delete, data: {confirm: translate('are_you_sure')}, remote: true) %>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <%= paginate @users %>
+    </div>
+  </div>
+</main>

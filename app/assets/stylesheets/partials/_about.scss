@@ -1,0 +1,33 @@
+.about__text p {
+  font-size: 2em;
+  text-align: justify;
+}
+
+.about__statistics {
+  margin: 6em 0 6em 0;
+  p {
+    font-size: 1.6em;
+    line-height: 1.4em;
+    text-align: justify;
+  }
+}
+
+.about__attributions {
+  margin: 6em 0 6em 0;
+  p {
+    font-size: 1.6em;
+    line-height: 1.4em;
+    text-align: justify;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.graph {
+  margin: 8em 0 8em 0;
+  h5 {
+    text-align: center;
+    margin-bottom: 1.6em;
+  }
+}

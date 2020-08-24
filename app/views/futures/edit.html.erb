@@ -1,0 +1,71 @@
+<main>
+  <div class="content-wrapper">
+    <div class="btn--top__field">
+      <%= link_to(translate('back_to_the_future'), future_path(@future.id), class: 'btn btn--inline') %>
+    </div>
+    <h1><%= translate('edit_future') %></h1>
+    <%= render(partial: 'form', locals: {future: @future}) %>
+    <% unless @future.personalized_photo.blank? %>
+      <div class="show-section">
+        <p><%= translate('remove_personalized_photo') %></p>
+        <p><%= link_to(translate('remove_personalized_photo'), future_personalized_photo_path(@future.id), class: 'btn btn--inline', method: :delete, remote: true) %></p>
+      </div>
+    <% end %>
+    <div class="show-section">
+      <p><%= translate('future_obsolete') %></p>
+      <p><%= link_to(translate('delete_future'), future_path(@future.id), class: 'btn btn--inline btn--warning', method: :delete, data: {confirm: translate('are_you_sure')}, remote: true) %></p>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('add_photo') %></h2>
+      <div class="btn--top__field">
+        <p><%= translate('choose_photo') %></p>
+        <%= link_to(translate('select_photo'), future_photos_path(@future), class: 'btn btn--inline') %>
+      </div>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('add_outcome') %></h2>
+      <div class="btn--top__field">
+        <%= link_to(translate('add_new_outcome'), new_future_outcome_path(@future.id), class: 'btn btn--inline') %>
+      </div>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('outcomes') %></h2>
+      <% @future.outcomes.order(impact: :desc).each do |outcome| %>
+        <div class="show__row" id="outcome-<%= outcome.id %>">
+          <div class="show__icon">
+            <%= render(partial: 'outcome_sphere', locals: {outcome: outcome}) %>
+          </div>
+          <div class="show__text">
+            <p><%= outcome.description %></p>
+            <%= link_to(translate('edit_outcome'), edit_future_outcome_path(@future.id, outcome.id), class: 'btn btn--inline ' + outcome.impact) %>
+            <%= link_to(translate('delete_outcome'), future_outcome_path(@future.id, outcome.id), class: 'btn btn--inline ' + outcome.impact, method: :delete, remote: true) %>
+          </div>
+        </div>
+      <% end %>
+      <% if @future.outcomes.empty? %>
+        <p><%= translate('no_outcome') %></p>
+      <% end %>
+    </div>
+    <div class="show-section">
+      <h2><%= translate('discussion') %></h2>
+      <% @future.comments.order(created_at: :desc).page(params[:page]).each do |comment| %>
+        <div class="show__row" id="comment-<%= comment.id %>">
+          <div class="show__icon">
+            <img class="avatar__image" src="<%= comment.user.avatar %>">
+          </div>
+          <div class="show__text">
+            <p class="description__subtitle"><%= translate('comment_by') %> <%= comment.user.name %> - <%= comment.created_at.strftime("%-d %B %Y at %H:%M") %> UTC</p>
+            <p><%= comment.body %></p>
+            <%= link_to(translate('delete_comment'), future_comment_path(@future.id, comment.id), class: 'btn btn--inline', method: :delete, remote: true) %>
+          </div>
+        </div>
+      <% end %>
+      <div>
+        <%= paginate @future.comments.order(created_at: :desc).page(params[:page]) %>
+      </div>
+      <% if @future.comments.empty? %>
+        <p><%= translate('no_comment') %></p>
+      <% end %>
+    </div>
+  </div>
+</main>

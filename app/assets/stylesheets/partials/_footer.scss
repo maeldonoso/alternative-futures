@@ -1,0 +1,19 @@
+.global-footer {
+  background-color: $black;
+  color: $light-grey;
+  padding: ($pulse * 3) 0 ($pulse * 3) 0;
+  margin-top: 3.6em;
+}
+
+.global-footer a {
+  color: inherit;
+}
+
+.locales_field a {
+  font-size: 1.6em;
+  text-decoration: none;
+}
+
+.languages {
+  font-size: 1.6em;
+}

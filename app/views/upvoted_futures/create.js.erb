@@ -1,0 +1,10 @@
+var upvoteRow = document.getElementById('upvote-future-<%= @future.id %>').parentElement.parentElement;
+document.getElementById('upvote-future-<%= @future.id %>').remove();
+
+var upvoteMessage = document.createElement('p');
+upvoteMessage.setAttribute('class', 'upvote-future');
+upvoteMessage.appendChild(document.createTextNode('<%= translate('thank_you_vote') %>'));
+upvoteRow.appendChild(upvoteMessage);
+
+var upvoteCounter = document.getElementById('total_upvotes_future-<%= @future.id.to_s %>');
+upvoteCounter.textContent = (parseInt(upvoteCounter.textContent) + 1).toString();

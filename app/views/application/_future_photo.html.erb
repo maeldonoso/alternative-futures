@@ -1,0 +1,10 @@
+<% if future.personalized_photo.blank? %>
+  <% if future.photo_url.nil? or future.photo_url == '' %>
+    <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2833&q=80"
+       alt="Placeholder image">
+  <% else %>
+    <%= image_tag(future.photo_url) %>
+  <% end %>
+<% else %>
+  <%= image_tag(future.personalized_photo) %>
+<% end %>

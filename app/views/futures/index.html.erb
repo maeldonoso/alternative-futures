@@ -1,0 +1,19 @@
+<main>
+  <div class="content-wrapper">
+    <h1><%= translate('results_for') %> "<%= @search_term %>"</h1>
+    <% if (@futures.any?) %>
+      <ul class="cards">
+        <% @futures.each do |future| %>
+        <li class="card no-line-height">
+          <%= render(partial: 'future_card', locals: { future: future }) %>
+        </li>
+        <% end %>
+      </ul>
+      <div>
+        <%= paginate @futures %>
+      </div>
+    <% else %>
+      <h3><%= translate('no_future_found') %></h3>
+    <% end %>
+  </div>
+</main>

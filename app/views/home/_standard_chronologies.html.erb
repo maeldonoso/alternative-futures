@@ -1,0 +1,11 @@
+<% futures.each do |future| %>
+  <div class='show__row'>
+    <div class='chronology__text'>
+      <p class='description__subtitle'><%= predicted_year(future) %></p>
+      <%= link_to(future_path(future), class: 'chronology__link') do %>
+        <h4><%= future.title %></h4>
+      <% end %>
+      <p><%= future.description %></p>
+    </div>
+  </div>
+<% end %>

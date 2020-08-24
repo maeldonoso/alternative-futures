@@ -1,0 +1,28 @@
+.upvote-future {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.upvote-outcome {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.upvote-comment {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.positive .upvote-outcome {
+  color: darken($positive-color, 10%);
+}
+
+.neutral .upvote-outcome {
+  color: darken($neutral-color, 10%);
+}
+
+.negative .upvote-outcome {
+  color: darken($negative-color, 10%);
+}

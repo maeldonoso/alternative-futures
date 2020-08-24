@@ -1,0 +1,8 @@
+<% case(outcome.impact) %>
+  <% when 'positive' %>
+    <%= inline_svg_tag('sphere.svg', class: 'sphere--green') %>
+  <% when 'neutral' %>
+    <%= inline_svg_tag('sphere.svg', class: 'sphere--yellow') %>
+  <% when 'negative' %>
+    <%= inline_svg_tag('sphere.svg', class: 'sphere--red') %>
+  <% end %>

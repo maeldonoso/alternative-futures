@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <title>Alternative Futures</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Alternative Futures: create and share your Futures">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,700,700i" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header class="banner banner--extended">
+      <div class="content-wrapper">
+        <%= link_to(root_path) do %>
+          <div class="logo">
+            <div class="logo__image">
+              <%= inline_svg_tag('sphere.svg', class: 'sphere--white') %>
+            </div>
+            <div class="logo__text logo--extended">
+              ALTERNATIVE FUTURES
+            </div>
+          </div>
+        <% end %>
+        <div class="global-header global-header--extended">
+          <div class="search">
+            <%= render(partial: 'search_form') %>
+          </div>
+          <div class="global-nav">
+            <% case(role?) %>
+              <% when 'admin' %>
+                <%= render partial: 'admin_user_header' %>
+              <% when 'registered' %>
+                <%= render partial: 'registered_user_header' %>
+              <% when 'anonymous' %>
+                <%= render partial: 'anonymous_user_header' %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+    <footer class="global-footer">
+      <div class="content-wrapper">
+        <div class="locales_field">
+          <span class="languages"><%= translate('language') %>: </span>
+          <% I18n.available_locales.each do |locale| %>
+            <%= link_to locale, url_for(locale: locale) %>
+          <% end %>
+        </div>
+        <div>
+          <p class="copyright">&copy; EPFL 2020</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

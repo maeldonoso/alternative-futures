@@ -1,0 +1,124 @@
+fr:
+  signup: 'Inscription'
+  login: 'Connexion'
+  logout: 'Déconnexion'
+  account: 'Compte'
+  users: 'Utilisateurs'
+  search: 'Rechercher'
+  search_futures: "À court d'idées? Rechercher des Futurs:"
+  cancel: 'Annuler'
+  create_share: 'Créez vos Futurs. Explorez leurs Résultats.'
+  most_recent: "Encore besoin d'un peu d'inspiration? Découvrez les Futurs les plus récents:"
+  future_number: 'Futur n°'
+  created_by: 'Créé par'
+  expected_by: "Attendu en l'an"
+  edit_account: 'Modifier le compte'
+  my_futures: 'Mes Futurs'
+  create_future: 'Créer un nouveau Futur'
+  to_edit_a_future: 'Pour modifier un Futur, cliquez sur son image.'
+  create_future: 'Créer un Futur'
+  edit_future: 'Modifier le Futur'
+  results_for: 'Résultats pour:'
+  no_future_found: 'Aucun Futur trouvé pour cette recherche!'
+  user_index: 'Index des Utilisateurs'
+  edit_user: "Modifier l'Utilisateur"
+  discussion: 'Discussion'
+  comment_by: 'Commentaire de'
+  add_comment: 'Ajouter un Commentaire'
+  post: 'Envoyer'
+  outcomes: 'Résultats'
+  possible_outcomes: 'Résultats possibles'
+  add_outcome: 'Ajouter un Résultat'
+  email: 'E-mail'
+  password: 'Mot de passe'
+  language: 'Langue'
+  about: 'À propos'
+  about_general: "L'objectif de cette application est de servir de plateforme pour échanger des idées concernant l'évolution de l'humanité. Les Utilisateurs peuvent découvrir des Futurs créés par d'autres, ou écrire leurs propres scénarios. Chaque Futur doit comporter un titre, une description générale, une année de réalisation prédite, ainsi que différents Résultats alternatifs. Ces Résultats peuvent être soit positifs, soit neutres, soit négatifs."
+  about_example: "Par exemple, le Futur 'Et si un gouvernement ou une entreprise réussissait à développer une IA avancée?' pourrait mener à trois possibilités: une ère de paix et de prospérité pour toute l'humanité (Résultat positif), aucun changement (Résultat neutre), ou une rébellion des machines suivie par un âge des ténèbres (Résultat négatif). Naturellement, tous les scénarios n'ont pas besoin d'être aussi extrêmes!"
+  about_chronology: "Les Utilisateurs doivent être inscrits pour pouvoir créer un Futur avec ses Résultats, ou écrire un Commentaire sur un Futur existant. Les Utilisateurs enregistrés peuvent également voter pour des Futurs, des Résultats ou des Commentaires. Tous les visiteurs, qu'ils/elles soient inscrit-e-s sur l'application ou non, peuvent également sélectionner des Futurs d'intérêt et les afficher dans la Chronologie, afin de les consulter dans un ordre temporel cohérent."
+  about_project: "Cette application a été créée par Maël Donoso en utilisant Ruby on Rails, initialement dans le cadre d'un projet pour l'École Polytechnique Fédérale de Lausanne."
+  statistics: 'Statistiques'
+  attributions: 'Attributions (English only)'
+  description_future: 'Description du Futur:'
+  logged_in_as: 'Vous êtes connecté-e en tant que'
+  registered_since: 'Inscrit-e depuis'
+  future_obsolete: 'Ce Futur est-il obsolète?'
+  delete_account: 'Supprimer le compte'
+  delete_information: "Cliquez sur ce bouton si vous souhaitez supprimer votre compte. Tous vos Futurs, ainsi que tous les Résultats et les Commentaires associés à ces Futurs, seront perdus. Cette action est irréversible."
+  delete_user: "Supprimer l'Utilisateur"
+  delete_outcome: 'Supprimer le Résultat'
+  delete_future: 'Supprimer le Futur'
+  delete_comment: 'Supprimer le Commentaire'
+  update_account: 'Mettre à jour le compte'
+  are_you_sure: 'Êtes-vous certain-e? Cette action est irréversible.'
+  chronology: 'Chronologie'
+  no_outcome: "Il n'y a pas encore de Résultat pour ce Futur."
+  no_comment: "Il n'y a pas encore de Commentaire pour ce Futur."
+  back_to_the_future: '<- Retour vers le Futur'
+  create_outcome: 'Créer un Résultat'
+  future: 'Futur'
+  add_new_outcome: 'Ajouter un nouveau Résultat'
+  outcome_submission_info: "Une fois que le Résultat est créé, vous serez redirigé-e vers la page Modifier le Futur, où votre Futur peut recevoir d'autres modifications. Si vous souhaitez ajouter de nouveaux Résultats, cliquez simplement sur le bouton 'Ajouter un nouveau Résultat'."
+  back_to_edit_future: '<- Retour vers la page Modifier le Futur'
+  edit_outcome: 'Modifier le Résultat'
+  futures: 'Futurs'
+  comments: 'Commentaires'
+  and: 'et'
+  amazing_community: 'ont déjà été créés par notre communauté futuriste de'
+  users: 'Utilisateurs'
+  discover_and_write: 'Découvrez notre application et écrivez votre propre Futur!'
+  complex_futures: 'Des Futurs complexes'
+  alternative_outcomes: 'Des Résultats alternatifs'
+  dedicated_users: 'Des Utilisateurs dévoués'
+  add_to_chronology: 'Ajouter à la Chronologie'
+  remove_from_chronology: 'Supprimer de la Chronologie'
+  delete_chronology: 'Supprimer la Chronologie'
+  add_photo: 'Ajouter une Photo'
+  select_photo: 'Choisir une Photo'
+  change_search_term: 'Changer le terme de recherche'
+  use_photo: 'Choisir cette Photo'
+  upvote_future: 'Voter pour ce Futur'
+  upvote_outcome: 'Voter pour ce Résultat'
+  upvote_comment: 'Voter pour ce Commentaire'
+  remove_upvote: 'Retirer votre vote'
+  upvotes_future: 'Votes pour ce Futur:'
+  upvotes_outcome: 'Votes pour ce Résultat:'
+  upvotes_comment: 'Votes pour ce Commentaire:'
+  thank_you_vote: 'Merci pour votre vote!'
+  vote_removed: 'Merci, votre vote a bien été retiré.'
+  future_score: 'Score du Futur'
+  time_horizon: 'Horizon temporel'
+  predicted_year: 'Année prédite'
+  years: 'ans'
+  statistics_score: "Pour chaque Futur, un score entre 0% et 100% est calculé. Ce score est fondé sur le nombre de fois où les Utilisateurs ont voté pour les Résultats positifs, neutres ou négatifs de ce Futur. Un Résultat positif voté donne 1 point, un Résultat neutre voté donne 0.5 point, et un Résultat négatif voté ne donne rien. Le nombre total de points pour un Futur, divisé par le nombre total de fois où les Résultats du Futur ont été votés, donne le score du Futur."
+  statistics_expectations: "Ainsi, un Futur avec un score proche de 0% est prédit comme relativement négatif. Un Futur avec un score proche de 100% est prédit comme relativement positif. Un Futur avec un score autour de 50% pourrait être neutre ou incertain. Par défaut, tous les nouveaux Futurs débutent avec un score de 50%."
+  statistics_horizons: "Les graphes qui suivent montrent la distribution des scores à différentes échelles temporelles. Ces distributions offrent un aperçu de ce à quoi le Futur en général pourrait ressembler, en pondérant les attentes des Utilisateurs concernant tous les Futurs créés dans l'application."
+  my_chronology: 'Ma Chronologie'
+  popular_futures: 'Futurs populaires'
+  recent_futures: 'Futurs récents'
+  empty_chronology: "Votre Chronologie est actuellement vide. Vous pouvez assembler votre propre Chronologie en cliquant sur le bouton 'Ajouter à la Chronologie' sur les Futurs de votre choix."
+  choose_photo: "Si vous n'avez pas, pour le moment, une photo personnalisée pour illustrer votre Futur, vous pouvez choisir une image dans la base de données Unsplash."
+  remove_personalized_photo: 'Supprimer la photo personnalisée'
+  helpers:
+    label:
+      user:
+        email: 'E-mail'
+        name: 'Nom'
+        password: 'Mot de passe'
+        avatar: 'Avatar'
+        role: 'Rôle'
+      future:
+        title: 'Titre'
+        description: 'Description'
+        predicted_year: 'Année prédite'
+        personalized_photo: 'Photo personnalisée'
+      outcome:
+        impact: 'Impact'
+        description: 'Description'
+    submit:
+      future:
+        create: 'Créer le Futur'
+        update: 'Mettre à jour le Futur'
+      outcome:
+        create: 'Créer un Résultat'
+        update: 'Mettre à jour le Résultat'

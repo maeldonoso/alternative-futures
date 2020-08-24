@@ -1,0 +1,10 @@
+<main>
+  <div class="content-wrapper">
+    <div class="btn--top__field">
+      <%= link_to(translate('back_to_edit_future'), edit_future_path(@future), class: 'btn btn--inline') %>
+    </div>
+    <h1><%= translate('edit_outcome') %></h1>
+    <h4 class="future-title"><%= translate('future') %>: "<%= @future.title %>"</h4>
+    <%= render(partial: 'form_outcomes', locals: {future: @future}) %>
+  </div>
+</main>

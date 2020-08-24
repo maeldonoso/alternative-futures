@@ -1,0 +1,80 @@
+.btn-field {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  font-size: 1.3rem;
+  background: $white;
+  color: $black;
+
+  padding: 0.8em;
+  margin: 0.5em;
+
+  border: 1px solid $medium-grey;
+  border-radius: 3px;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.btn.positive {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($positive-color, 10%);
+  }
+}
+
+.btn.neutral {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($neutral-color, 10%);
+  }
+}
+
+.btn.negative {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($negative-color, 10%);
+  }
+}
+
+.btn--inline {
+  width: 80%;
+  box-sizing: content-box;
+}
+
+.btn--warning {
+  background: $secondary-color;
+}
+
+.btn--top__field {
+  margin: 4.8em 0 6.4em 0;
+}
+
+.btn.btn--active {
+  background-color: $primary-color;
+  color: $white;
+}
+
+@include tablet {
+  .btn--inline {
+    display: inline;
+    width: auto;
+  }
+}

@@ -1,0 +1,37 @@
+<main>
+  <div class="content-wrapper">
+    <div class="about__text">
+      <h1><%= translate('about') %></h1>
+      <p><%= translate('about_general') %></p>
+      <p><%= translate('about_example') %></p>
+      <p><%= translate('about_chronology') %></p>
+      <p><%= translate('about_project') %></p>
+    </div>
+    <div class="about__statistics">
+      <h4><%= translate('statistics') %></h4>
+      <p><%= translate('statistics_score') %></p>
+      <p><%= translate('statistics_expectations') %></p>
+      <p><%= translate('statistics_horizons') %></p>
+      <div class="graph">
+        <h5><%= translate('time_horizon') %>: 100 <%= translate('years') %> (<%= @current_year %>-<%= @current_year + 100 %>)</h5>
+        <%= scatter_chart @score_array, xtitle: translate('predicted_year'), ytitle: translate('future_score'), xmin: @current_year, xmax: @current_year + 100, ymin: 0, ymax: 100, height: '500px' %>
+      </div>
+      <div class="graph">
+        <h5><%= translate('time_horizon') %>: 250 <%= translate('years') %> (<%= @current_year %>-<%= @current_year + 250 %>)</h5>
+        <%= scatter_chart @score_array, xtitle: translate('predicted_year'), ytitle: translate('future_score'), xmin: @current_year, xmax: @current_year + 250, ymin: 0, ymax: 100, height: '500px' %>
+      </div>
+      <div class="graph">
+        <h5><%= translate('time_horizon') %>: 1000 <%= translate('years') %> (<%= @current_year %>-<%= @current_year + 1000 %>)</h5>
+        <%= scatter_chart @score_array, xtitle: translate('predicted_year'), ytitle: translate('future_score'), xmin: @current_year, xmax: @current_year + 1000, ymin: 0, ymax: 100, height: '500px' %>
+      </div>
+    </div>
+    <div class="about__attributions">
+      <h4><%= translate('attributions') %></h4>
+      <p>The <a href="https://www.flaticon.com/free-icon/earth-with-dots-and-lines-of-connections-of-business_45142">Sphere icon</a> was made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>.</p>
+      <p>The <a href="https://www.flaticon.com/free-icon/user_929422">User icon</a> was made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>.</p>
+      <p>The <a href="https://images.unsplash.com/photo-1417577097439-425fb7dec05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3289&q=80">Universe photo</a> from the banner was taken from <a href="https://unsplash.com/">Unsplash</a>.</p>
+      <p>The images used to illustrate the placeholder Futures were taken from <a href="https://unsplash.com/">Unsplash</a>.</p>
+      <p>The names Hari Seldon and Susan Calvin, used as placeholders for some Futurs, are characters in the novels of Isaac Asimov.</p>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,29 @@
+.logo {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+}
+
+.logo__text {
+  color: $white;
+  font-size: 2.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+@include tablet {
+  .logo__text.logo--extended {
+    font-size: 3.2rem;
+  }
+}
+
+@include desktop {
+  .logo__text.logo--extended {
+    font-size: 3.6rem;
+  }
+}

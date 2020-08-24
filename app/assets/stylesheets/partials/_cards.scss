@@ -1,0 +1,76 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0px 0px 20px rgba(0,0,0,14%);
+  margin: 0 $pulse $pulse 0;
+  border-radius: 3px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: $white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  img {
+    width: 100%;
+    object-fit: fill;
+    filter: brightness(70%);
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.card__intro {
+  padding: 1.6em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card__title {
+  font-size: 2em;
+  font-weight: bold;
+  color: $white;
+}
+
+.cards::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.no-line-height {
+  line-height: 0;
+}
+
+@include tablet {
+  .cards {
+    margin-right: -$pulse;
+  }
+  .cards .card {
+    float: left;
+    width: 46%;
+    img {
+      height: 250px;
+    }
+  }
+}
+
+@include desktop {
+  .cards {
+    margin-right: -$pulse;
+  }
+  .cards .card {
+    float: left;
+    width: 31%;
+  }
+}

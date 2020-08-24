@@ -1,0 +1,20 @@
+<% if(@outcome.errors.any?) %>
+  <div class="form__error">
+    <%= @outcome.errors.full_messages.join('<br />') %>
+  </div>
+<% end %>
+<%= form_for([@future, @outcome]) do |form| %>
+  <div class="input__row">
+    <%= form.label(:impact, class: 'input__label') %>
+    <%= form.select(:impact, %w(positive neutral negative), {}, class: 'input__field') %>
+  </div>
+  <div class="input__row">
+    <%= form.label(:description, translate('add_outcome'), class: 'input__label') %>
+    <%= form.text_area(:description, rows: 10, class: 'input__field') %>
+  </div>
+  <div class="input__row">
+    <div class="prompt">
+      <%= form.submit(type: 'submit', class: "btn") %>
+    </div>
+  </div>
+<% end %>

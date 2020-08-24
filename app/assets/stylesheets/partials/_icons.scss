@@ -1,0 +1,34 @@
+.sphere-large {
+  margin: 3.2em 0 6.4em 0;
+  fill: $primary-color;
+}
+
+.sphere {
+  margin-left: 1.2em;
+}
+
+.sphere--white {
+  fill: $white;
+  margin-right: 1.6em;
+}
+
+.sphere--blue {
+  fill: $primary-color;
+}
+
+.sphere--green {
+  fill: $positive-color;
+}
+
+.sphere--yellow {
+  fill: $neutral-color;
+}
+
+.sphere--red {
+  fill: $negative-color;
+}
+
+.avatar__image {
+  height: 50px;
+  width: 50px;
+}

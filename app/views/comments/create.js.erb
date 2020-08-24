@@ -1,0 +1,16 @@
+var comment = {
+  'avatar_path': '<%= @future.comments.last.user.avatar %>',
+  'description': "<%= translate('comment_by') %> <%= @future.comments.last.user.name %> - <%= @future.comments.last.created_at.strftime('%-d %B %Y at %H:%M') %> UTC",
+  'body': '<%= @future.comments.last.body %>',
+  'nb_comments' : '<%= @future.comments.all.length %>'
+};
+
+if (comment.avatar_path == '') {
+  comment.avatar_path = 'https://image.flaticon.com/icons/svg/929/929422.svg';
+}
+
+if (comment.nb_comments == 1) {
+  document.getElementById('no-comment').remove();
+}
+
+Comments.addComment(comment);

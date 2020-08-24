@@ -1,0 +1,7 @@
+<%= link_to(future_path(future)) do %>
+  <%= render(partial: 'future_photo', locals: { future: future }) %>
+  <div class="card__intro">
+    <h3 class="card__title"><%= future.title %></h3>
+    <p><%= translate('expected_by') %> <%= predicted_year(future) %></p>
+  </div>
+<% end %>

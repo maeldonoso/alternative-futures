@@ -1,0 +1,28 @@
+<% if(future.errors.any?) %>
+  <div class="form__error">
+    <%= future.errors.full_messages.join('<br />') %>
+  </div>
+<% end %>
+<%= form_for(future) do |form| %>
+  <div class="input__row">
+    <%= form.label(:title, class: 'input__label') %>
+    <%= form.text_field(:title, class: 'input__field')%>
+  </div>
+  <div class="input__row">
+    <%= form.label(:predicted_year, class: 'input__label') %>
+    <%= form.number_field(:predicted_year, class: 'input__field')%>
+  </div>
+  <div class="input__row">
+    <%= form.label(:photo_url, class: 'input__label') %>
+    <%= form.text_field(:photo_url, class: 'input__field')%>
+  </div>
+  <div class="input__row">
+    <%= form.label(:description, class: 'input__label') %>
+    <%= form.text_area(:description, rows: 10, class: 'input__field')%>
+  </div>
+  <div class="input__row">
+    <div class="prompt">
+      <%= form.submit(type: 'submit', class: "btn") %>
+    </div>
+  </div>
+<% end %>

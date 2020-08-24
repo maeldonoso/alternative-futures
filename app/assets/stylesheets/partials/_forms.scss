@@ -1,0 +1,51 @@
+.input__row {
+  margin-bottom: 1.6em;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.input__label {
+  padding: 0.8em;
+}
+
+.input__field {
+  padding: 0.8em;
+  width: 100%;
+  font-size: 1.6rem;
+  color: $dark-grey;
+}
+
+.prompt {
+  margin-left: auto;
+}
+
+.future-title {
+  margin: 2.4em 0 2.4em 0;
+}
+
+.form__information {
+  font-size: 1.6em;
+  text-align: justify;
+  margin: 2.4em 0 2.4em 0;
+}
+
+.form__error {
+  font-size: 1.6em;
+  color: $secondary-color;
+  margin-bottom: 1.6em;
+}
+
+@include desktop {
+  .input__row {
+    width: 640px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .input__field {
+    width: 480px;
+    float: right;
+  }
+}

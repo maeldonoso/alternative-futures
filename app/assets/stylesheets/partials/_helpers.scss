@@ -1,0 +1,11 @@
+.content-wrapper {
+  max-width: 96em;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+.content-wrapper::after { /* We use this clearfix because of the floating elements. */
+  content: "";
+  display: table;
+  clear: both;
+}
