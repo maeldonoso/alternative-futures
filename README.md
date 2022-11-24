@@ -1,10 +1,5 @@
 # ALTERNATIVES FUTURES
 
-## Public URL
-
-https://salty-spire-74103.herokuapp.com/
-
-
 ## About this application
 
 ### General description
@@ -64,6 +59,3 @@ This application was created by Maël Donoso using Ruby on Rails, initially as a
 
 ### Third party APIs
 * Unsplash
-
-### Deployment platform
-Heroku (https://www.heroku.com/)
